@@ -1,5 +1,6 @@
 class CustomersController < ApplicationController
   def index
+    @customer = Customer.all
   end
 
   def new
@@ -8,7 +9,6 @@ class CustomersController < ApplicationController
 
   def create
     @customer = Customer.new(customer_params)
-    binding.pry
     if @customer.save
       redirect_to root_path
     else
@@ -16,11 +16,9 @@ class CustomersController < ApplicationController
     end
   end
 
-  def show
+  def search
   end
 
-  def destory
-  end
 
   private
 
