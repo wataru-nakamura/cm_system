@@ -1,0 +1,50 @@
+<h1>新規顧客登録画面</h1>
+
+<%= form_with model: @customer do |form| %>
+  <div>
+    <%= form.text_field :family_name, placeholder:"姓" %>
+  </div>
+  <div>
+    <%= form.text_field :first_name, placeholder:"名" %>
+  </div>
+  <div>
+    <%= form.text_field :family_name_kana, placeholder:"姓カナ" %>
+  </div>
+  <div>  
+    <%= form.text_field :first_name_kana, placeholder:"名カナ" %>
+  </div>
+  <div>
+    <%= raw sprintf(
+      form.date_select(
+        :birthday,
+        class:'select-birth',
+        id:"birth-date",
+        use_month_numbers: true,
+        prompt:'--',
+        start_year: 1930,
+        end_year: (Time.now.year - 5),
+        date_separator: '%s'),
+        "年", "月") + "日" %>
+  </div>
+  <div>  
+    <%= form.text_field :age, placeholder:"年齢" %>
+  </div>
+  <div>  
+    <%= form.text_field :postal_code, placeholder:"郵便番号" %>
+  </div>
+  <div>  
+    <%= form.text_field :address, placeholder:"住所" %>
+  </div>
+  <div>  
+    <%= form.text_field :building_name, placeholder:"建物名" %>
+  </div>
+  <div>  
+    <%= form.text_field :phone_number, placeholder:"電話番号" %>
+  </div>
+  <div>
+    <%= form.email_field :email, placeholder:"メールアドレス" %>
+  </div>
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

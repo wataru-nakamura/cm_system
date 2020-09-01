@@ -1,0 +1,37 @@
+<h1>Customer Management Sysutem</h1>
+<div>
+  <%= current_user.name %>
+</div>
+<div>
+  <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'btn'%>
+</div>
+<div>
+  <%= link_to "新規顧客登録", new_customer_path, class: 'btn'%>
+</div>
+<div>
+  <%= link_to "顧客検索", new_customer_path, class: 'btn'%>
+</div>
+<%= form_with url: search_customers_path, local: true, method: :get do |form| %>
+  <%= form.text_field :keyword, placeholder: "顧客を検索する" %>
+  <%= form.submit "検索" %>
+<% end %>
+
+<div>
+  <% @customer.each do |customer| %>
+    <p>姓</p>
+    <%= customer.family_name %>
+    <p>名</p>
+    <%= customer.first_name %>
+    <p>姓カナ</p>
+    <%= customer.family_name_kana %>
+    <p>名カナ</p>
+    <%= customer.first_name_kana %>
+  <% end %>
+</div>
+<p>生年月日</p>
+<p>年齢</p>
+<p>郵便番号</p>
+<p>住所</p>
+<p>建物名</p>
+<p>電話番号</p>
+<p>メールアドレス</p>
