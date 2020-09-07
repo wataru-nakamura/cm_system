@@ -26,6 +26,9 @@
         date_separator: '%s'),
         "年", "月") + "日" %>
   </div>
+  <div>
+  <%= form.radio_button :gender, "男" %>男 <%= form.radio_button :gender, "女" %>女
+  </div>
   <div>  
     <%= form.text_field :age, placeholder:"年齢" %>
   </div>

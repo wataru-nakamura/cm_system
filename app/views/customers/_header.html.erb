@@ -1,0 +1,16 @@
+  <div class="mainpage-header">
+      <div class="mainpage-header-left">
+        <h1><%= link_to "Customer Management System", root_path, class: 'home-btn' %></h1>
+        <div class="mainpage-header-left-contents">
+          <%= link_to "新規顧客登録", new_customer_path, class: 'btn'%>
+        </div>
+      </div>
+      <div class="mainpage-header-right">
+        <div class="mainpage-header-right-contents">
+          <div class="right-content">
+            <%= current_user.name %>
+          </div>
+          <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'btn'%>
+        </div>
+      </div>
+  </div>

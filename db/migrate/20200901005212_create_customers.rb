@@ -6,6 +6,7 @@ class CreateCustomers < ActiveRecord::Migration[6.0]
       t.string  :family_name_kana,  null:false
       t.string  :first_name_kana,   null:false
       t.date    :birthday,          null:false
+      t.string  :gender,            null:false
       t.integer :age,               null:false
       t.string  :postal_code,       null:false
       t.string  :address,           null:false

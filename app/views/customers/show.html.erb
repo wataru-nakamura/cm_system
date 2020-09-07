@@ -1,26 +1,58 @@
-<h1>顧客詳細画面</h1>
-<%= @customer.id %>
-<br>
-<%= @customer.family_name %>
-<br>
-<%= @customer.first_name %>
-<br>
-<%= @customer.family_name_kana %>
-<br>
-<%= @customer.first_name_kana %>
-<br>
-<%= @customer.birthday %>
-<br>
-<%= @customer.age %>
-<br>
-<%= @customer.postal_code %>
-<br>
-<%= @customer.address %>
-<br>
-<%= @customer.building_name %>
-<br>
-<%= @customer.phone_number %>
-<br>
-<%= @customer.email %>
-<br>
-<%= link_to 'ホームへ戻る', root_path %>
+<div class="mainpage">
+  <%= render partial: "header"%>
+  <div class="customer-datas-show">
+    <div class="customer-data-show">
+      <h2>顧客詳細</h2>
+    </div>
+
+    <div class="customer-data-show">
+      <div class="customer-detail-id">
+        ID：<%= @customer.id %>
+      </div>
+      <div class="customer-detail-name">
+        セイ：<%= @customer.family_name_kana %>
+      </div>
+      <div class="customer-detail-name">
+        ナ：<%= @customer.first_name_kana %>
+      </div>
+      <div class="customer-detail-birth">
+        生年月日：<%= @customer.birthday %>
+      </div>
+      <div class="customer-detail-age">
+        年齢：<%= @customer.age %>
+      </div>
+    </div>
+
+    <div class="customer-data-show">
+      <div class="customer-detail-id">
+      </div>
+      <div class="customer-detail-name">
+        <%= @customer.family_name %>
+      </div>
+      <div class="customer-detail-name">
+        <%= @customer.first_name %>
+      </div>
+      <div class="customer-detail-phone">
+        <%= @customer.phone_number %>
+      </div>
+      <div class="customer-detail-email">
+        <%= @customer.email %>
+      </div>
+    </div>
+    
+    <div class="customer-data-show">
+      <div class="customer-detail-id">
+      </div>
+      <div class="customer-detail-postal">
+        <%= @customer.postal_code %>
+      </div>
+      <div class="customer-detail-address">
+        <%= @customer.address %>
+      </div>
+      <div class="customer-detail-building">
+        <%= @customer.building_name %>
+      </div>
+    </div>
+
+  </div>
+</div>
