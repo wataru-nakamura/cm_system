@@ -1,0 +1,65 @@
+<div class="mainpage">
+  <%= render partial: "header"%>
+  <div class="mainpage-under">
+
+    <%# 検索サイドバー %>
+    <div class="mainpage-sidebar">
+      <p>顧客検索条件</p>
+          <%= search_form_for @c, url: search_customers_path do |f| %>
+          <%= f.label :name, '氏名' %>
+          <%= f.search_field :family_name_or_first_name_cont %>
+          <%= f.submit '検索', class: 'mainpage-btn' %>
+          <% end %>
+    </div>
+    <%# //検索サイドバー %>
+
+
+    <%# 検索結果 %>
+    <div class="mainpage-contents">
+      <div class="mainpage-tag">
+        <div class="tagname-id">ID</div>
+        <div class="tagname-name">氏名</div>
+        <div class="tagname-address">住所</div>
+        <div class="tagname-age">年齢</div>
+        <div class="tagname-gender">性別</div>
+        <div class="tagname"></div>
+        <div class="tagname"></div>
+      </div>
+      <div class="mainpage-content">
+        <% if @results.length !=0 %>
+          <% @results.each do |result| %>
+            <div class="customer-data">
+              <div class="tagname-id-2">
+                <%= result.id %>
+              </div>
+              <div class="tagname-name-2">
+                <%= result.family_name %>
+                <%= result.first_name %>
+              </div>
+              <div class="tagname-address-2">
+                <%= result.address %>
+              </div>
+              <div class="tagname-age-2">
+                <%= result.age %>
+              </div>
+              <div class="tagname-gender-2">
+                <%= result.gender %>
+              </div>
+              <div class="tagname">
+                <%= link_to "詳細", customer_path(result.id) %>
+              </div>
+              <div class="tagname">
+                <%= link_to "編集", edit_customer_path(result.id) %>
+              </div>
+            </div>
+          <% end %>
+        <% else %>
+          該当する顧客登録はありません
+        <% end %>
+      </div>
+    </div>
+    <%# //検索結果 %>
+
+  </div>
+</div>
+

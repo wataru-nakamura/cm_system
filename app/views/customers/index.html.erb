@@ -1,37 +1,47 @@
-<h1>Customer Management Sysutem</h1>
-<div>
-  <%= current_user.name %>
-</div>
-<div>
-  <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'btn'%>
-</div>
-<div>
-  <%= link_to "新規顧客登録", new_customer_path, class: 'btn'%>
-</div>
-<div>
-  <%= link_to "顧客検索", new_customer_path, class: 'btn'%>
-</div>
-<%= form_with url: search_customers_path, local: true, method: :get do |form| %>
-  <%= form.text_field :keyword, placeholder: "顧客を検索する" %>
-  <%= form.submit "検索" %>
-<% end %>
+<div class="mainpage">
+  <%= render partial: "header"%>
+  <div class="mainpage-under">
 
-<div>
-  <% @customer.each do |customer| %>
-    <p>姓</p>
-    <%= customer.family_name %>
-    <p>名</p>
-    <%= customer.first_name %>
-    <p>姓カナ</p>
-    <%= customer.family_name_kana %>
-    <p>名カナ</p>
-    <%= customer.first_name_kana %>
-  <% end %>
+    <%# 検索サイドバー %>
+    <div class="mainpage-sidebar">
+      <p>顧客検索条件</p>
+        <%= search_form_for @c, url: search_customers_path do |f| %>
+        <div class="sidebar">
+          <%= f.search_field :family_name_or_first_name_or_family_name_kana_or_first_name_kana_cont, placeholder:"氏名" %>
+        </div>
+        <div class="sidebar">
+          <%= f.search_field :address_cont, placeholder:"住所" %>
+        </div>
+        <div class="sidebar">
+          <%= f.number_field :age_gteq, placeholder:"年齢" %>以上〜
+          <%= f.number_field :age_lt, placeholder:"年齢" %>未満
+        </div>
+        <div class="">
+          <%= f.label :性別 %>
+          <div>
+            <%= f.radio_button :gender_eq, '' %>指定なし
+            <%= f.radio_button :gender_eq, '男' %>男
+            <%= f.radio_button :gender_eq, '女' %>女
+          </div>
+        </div>
+          <%= f.submit '検索', class: 'mainpage-btn' %>
+        <% end %>
+    </div>
+    <%# //検索サイドバー %>
+
+    <%# 検索結果 %>
+    <div class="mainpage-contents">
+      <div class="mainpage-tag">
+        <div class="tagname-id">ID</div>
+        <div class="tagname-name">氏名</div>
+        <div class="tagname-address">住所</div>
+        <div class="tagname-age">年齢</div>
+        <div class="tagname-gender">性別</div>
+        <div class="tagname"></div>
+        <div class="tagname"></div>
+      </div>
+    </div>
+    <%# //検索結果 %>
+
+  </div>
 </div>
-<p>生年月日</p>
-<p>年齢</p>
-<p>郵便番号</p>
-<p>住所</p>
-<p>建物名</p>
-<p>電話番号</p>
-<p>メールアドレス</p>
