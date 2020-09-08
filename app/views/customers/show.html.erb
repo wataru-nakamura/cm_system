@@ -1,58 +1,81 @@
 <div class="mainpage">
   <%= render partial: "header"%>
+
+<%# 顧客詳細部分 %>
   <div class="customer-datas-show">
-    <div class="customer-data-show">
-      <h2>顧客詳細</h2>
-    </div>
 
-    <div class="customer-data-show">
-      <div class="customer-detail-id">
-        ID：<%= @customer.id %>
+    <div class="showpage-top">
+      <div class="customer-data-show">
+        <h2>顧客詳細</h2>
       </div>
-      <div class="customer-detail-name">
-        セイ：<%= @customer.family_name_kana %>
-      </div>
-      <div class="customer-detail-name">
-        ナ：<%= @customer.first_name_kana %>
-      </div>
-      <div class="customer-detail-birth">
-        生年月日：<%= @customer.birthday %>
-      </div>
-      <div class="customer-detail-age">
-        年齢：<%= @customer.age %>
-      </div>
-    </div>
 
-    <div class="customer-data-show">
-      <div class="customer-detail-id">
+      <div class="customer-data-show">
+        <div class="customer-detail-id">
+          ID：<%= @customer.id %>
+        </div>
+        <div class="customer-detail-name">
+          セイ：<%= @customer.family_name_kana %>
+        </div>
+        <div class="customer-detail-name">
+          ナ：<%= @customer.first_name_kana %>
+        </div>
+        <div class="customer-detail-birth">
+          生年月日：<%= @customer.birthday %>
+        </div>
+        <div class="customer-detail-age">
+          年齢：<%= @customer.age %>
+        </div>
       </div>
-      <div class="customer-detail-name">
-        <%= @customer.family_name %>
+
+      <div class="customer-data-show">
+        <div class="customer-detail-id">
+        </div>
+        <div class="customer-detail-name">
+          <%= @customer.family_name %>
+        </div>
+        <div class="customer-detail-name">
+          <%= @customer.first_name %>
+        </div>
+        <div class="customer-detail-phone">
+          <%= @customer.phone_number %>
+        </div>
+        <div class="customer-detail-email">
+          <%= @customer.email %>
+        </div>
       </div>
-      <div class="customer-detail-name">
-        <%= @customer.first_name %>
-      </div>
-      <div class="customer-detail-phone">
-        <%= @customer.phone_number %>
-      </div>
-      <div class="customer-detail-email">
-        <%= @customer.email %>
+      
+      <div class="customer-data-show">
+        <div class="customer-detail-id">
+        </div>
+        <div class="customer-detail-postal">
+          <%= @customer.postal_code %>
+        </div>
+        <div class="customer-detail-address">
+          <%= @customer.address %>
+        </div>
+        <div class="customer-detail-building">
+          <%= @customer.building_name %>
+        </div>
       </div>
     </div>
-    
-    <div class="customer-data-show">
-      <div class="customer-detail-id">
+    <%# 顧客詳細部分 %>
+
+
+    <%# 顧客メモ部分 %>
+    <div class="showpage-under">
+      <div class="showpage-memos">メモ
+      <%= form_for [@customer, @comment] do |f| %>
+      <%# <%= form_with url: customer_comments_path, method: :post, local: true do |f| %> %>
+          <%= f.text_field :content %>
+          <%= f.submit '登録' %>
+        <% end %>
+        <div class="memo">
+        </div>
       </div>
-      <div class="customer-detail-postal">
-        <%= @customer.postal_code %>
-      </div>
-      <div class="customer-detail-address">
-        <%= @customer.address %>
-      </div>
-      <div class="customer-detail-building">
-        <%= @customer.building_name %>
+      <div class="showpage-map">地図
       </div>
     </div>
+    <%# 顧客メモ部分 %>
 
   </div>
 </div>

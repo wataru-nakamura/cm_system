@@ -21,6 +21,7 @@ class CustomersController < ApplicationController
   def show
     @customer = Customer.find(params[:id])
     # binding.pry
+    @comment = Comment.new
   end
 
   def edit

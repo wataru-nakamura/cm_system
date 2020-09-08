@@ -4,8 +4,12 @@
 
     <%# 検索サイドバー %>
     <div class="mainpage-sidebar">
-      <p>顧客検索条件</p>
+      <h3>顧客検索条件</h3>
         <%= search_form_for @c, url: search_customers_path do |f| %>
+        <div class="sidebar">
+          <%= f.search_field :id_eq, placeholder:"ID" %>
+        </div>
+
         <div class="sidebar">
           <%= f.search_field :family_name_or_first_name_or_family_name_kana_or_first_name_kana_cont, placeholder:"氏名" %>
         </div>
@@ -13,8 +17,8 @@
           <%= f.search_field :address_cont, placeholder:"住所" %>
         </div>
         <div class="sidebar">
-          <%= f.number_field :age_gteq, placeholder:"年齢" %>以上〜
-          <%= f.number_field :age_lt, placeholder:"年齢" %>未満
+          <%= f.number_field :age_gteq, placeholder:"年齢" %><p>以上</P>
+          <%= f.number_field :age_lt, placeholder:"年齢" %><p>未満</P>
         </div>
         <div class="">
           <%= f.label :性別 %>
