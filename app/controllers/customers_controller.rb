@@ -11,6 +11,7 @@ class CustomersController < ApplicationController
 
   def create
     @customer = Customer.new(customer_params)
+    # binding.pry
     if @customer.save
       redirect_to root_path
     else
@@ -20,19 +21,27 @@ class CustomersController < ApplicationController
 
   def show
     @customer = Customer.find(params[:id])
-    # binding.pry
+    @comments = @customer.comments
     @comment = Comment.new
   end
 
   def edit
     @customer = Customer.find(params[:id])
-    # binding.pry
+  end
+
+  def update
+    customer = Customer.find(params[:id])
+    if customer.update(customer_params)
+      redirect_to root_path
+    else
+      render :edit
+    end
+
   end
 
 
   def search
     @results = @c.result
-    # binding.pry
   end
 
 

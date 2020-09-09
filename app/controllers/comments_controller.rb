@@ -2,8 +2,12 @@ class CommentsController < ApplicationController
 
   def create
     @comment = Comment.new(comment_params) 
-    # binding.pry
     @comment.save
+  end
+
+  def destroy
+    comment = Comment.find(params[:id])
+    comment.destroy
   end
 
   private
