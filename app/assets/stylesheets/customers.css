@@ -1,22 +1,26 @@
 .mainpage {
-  padding: 15px;
+  /* padding: 15px; */
 }
 
 
 /* ヘッダー */
 .home-btn {
+  color: #330000;
   font-size: 2rem;
   text-decoration: none;
 }
 .mainpage-header {
   width: auto;
   height: 100px; 
-  border-bottom: 2px solid #7db4e6 ;
+  background-color: #eaf6fd;
+  border-bottom: 1px solid #dddddd ;
   display: flex;
   justify-content: space-between;
+  position: sticky;
 }
 .mainpage-header-left {
   width: 550px;
+  margin-left: 20px;
 }
 .mainpage-header-left-contents {
   margin-top: 10px;
@@ -69,7 +73,7 @@
 .mainpage-sidebar {
   width: 200px;
   padding: 20px;
-  border-right: 2px solid #7db4e6 ;
+  border-right: 1px solid #dddddd ;
 }
 .mainpage-sidebar h3 {
   flex-basis: 10%;
@@ -168,6 +172,7 @@ input[type=radio] {
   padding: 20px;
   font-size: large;
   display: flex;
+  position: sticky;
 }
 .mainpage-tag p {
   text-decoration: underline;
@@ -220,14 +225,13 @@ input[type=radio] {
 .tagname {
   flex-basis: 5%;
   padding-left: 20px;
-}
-.mainpage-content {
-  /* overflow: scroll; */
+  text-decoration: none;
 }
 .customer-data {
   height: 30px;
   padding: 20px;
   font-size: large;
+  border-bottom: 1px solid #dddddd ;
   display: flex;
   justify-content: space-around;
 }
@@ -262,6 +266,10 @@ input[type=radio] {
   height: calc(100vh - 100px);
   margin: 10px 30px;
 }
+.customer-data-header h2{
+  font-size: larger;
+  font-weight: bold;
+}
 .customer-data-show {
   height: 50px;
   display: flex;
@@ -271,15 +279,8 @@ input[type=radio] {
   color: #494949;
   background: #f4f4f4;
   border-left: solid 5px #7db4e6;
-  border-bottom: solid 3px #d7d7d7;
-  
+  border-bottom: solid 3px #d7d7d7; 
 }
-.customer-data-show h2 {
-  font-size: larger;
-  font-weight: bold;
-}
-
-
 .customer-detail-id {
   flex-basis: 10%;
 }
@@ -293,10 +294,10 @@ input[type=radio] {
   flex-basis: 20%;
 }
 .customer-detail-phone {
-  flex-basis: 20%;
+  flex-basis: 25%;
 }
 .customer-detail-email {
-  flex-basis: 20%;
+  flex-basis: 25%;
 }
 .customer-detail-postal {
   flex-basis: 20%;
@@ -320,33 +321,44 @@ input[type=radio] {
 .showpage-memos  {
   width: 50%;
   height: auto;
-  overflow: scroll;
+  overflow: auto;
 }
 .showpage-memos p {
   font-size: larger;
   font-weight: bold;
 }
 .memo-post #comment_content {
-  width: 70%;
+  width: 80%;
   height: 40px;
-  font-size: larger;
+  font-size: medium;
   margin-bottom: 10px;
-  box-shadow: 0 0 7px #7db4e6;
-  border: 1px solid #7db4e6;
+  border: 1px solid #dddddd;
+}
+.memo-post input[type=submit] {
+  width: 60px;
+  height: 40px;
 }
 .memo {
-  width: 80%;
+  width: 90%;
   height: 30px;
   padding: 0.4em 0.5em;
   color: #494949;
   background: #f4f4f4;
   border-left: solid 5px #f5a500;
   border-bottom: solid 3px #d7d7d7;
+  display: flex;
+  overflow: auto;
 }
+.memo-content {
+  flex-basis: 90%;
+}
+.memo-delete {
+  flex-basis: 10%;
+  text-align: end;
+  text-decoration: none;
+}
+/* 顧客メモ部分 */
 .showpage-map  {
   width: 50%;
   height: auto;
-  border: 1px solid red;
 }
-
-/* 顧客メモ部分 */

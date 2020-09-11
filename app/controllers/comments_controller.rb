@@ -6,8 +6,10 @@ class CommentsController < ApplicationController
   end
 
   def destroy
-    comment = Comment.find(params[:id])
-    comment.destroy
+    comment = Comment.find(params[:customer_id])
+    if comment.destroy
+      redirect_to :back
+    end
   end
 
   private

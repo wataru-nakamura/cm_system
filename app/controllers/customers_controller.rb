@@ -11,7 +11,6 @@ class CustomersController < ApplicationController
 
   def create
     @customer = Customer.new(customer_params)
-    # binding.pry
     if @customer.save
       redirect_to root_path
     else
@@ -21,7 +20,7 @@ class CustomersController < ApplicationController
 
   def show
     @customer = Customer.find(params[:id])
-    @comments = @customer.comments
+    @comments = @customer.comments.order(id: "DESC")
     @comment = Comment.new
   end
 

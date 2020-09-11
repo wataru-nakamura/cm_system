@@ -4,8 +4,11 @@
 
     <%# 検索サイドバー %>
     <div class="mainpage-sidebar">
-      <p>顧客検索条件</p>
+      <h3>顧客検索条件</h3>
         <%= search_form_for @c, url: search_customers_path do |f| %>
+        <div class="sidebar">
+          <%= f.search_field :id_eq, placeholder:"ID" %>
+        </div>
         <div class="sidebar">
           <%= f.search_field :family_name_or_first_name_or_family_name_kana_or_first_name_kana_cont, placeholder:"氏名" %>
         </div>
