@@ -1,58 +1,144 @@
 <div class="mainpage">
   <%= render partial: "header"%>
+
+  <%# 顧客詳細部分 %>
   <div class="customer-datas-show">
-    <div class="customer-data-show">
-      <h2>顧客詳細</h2>
-    </div>
 
-    <div class="customer-data-show">
-      <div class="customer-detail-id">
-        ID：<%= @customer.id %>
+    <div class="showpage-top">
+      <div class="customer-data-header">
+        <h2>顧客詳細</h2>
       </div>
-      <div class="customer-detail-name">
-        セイ：<%= @customer.family_name_kana %>
-      </div>
-      <div class="customer-detail-name">
-        ナ：<%= @customer.first_name_kana %>
-      </div>
-      <div class="customer-detail-birth">
-        生年月日：<%= @customer.birthday %>
-      </div>
-      <div class="customer-detail-age">
-        年齢：<%= @customer.age %>
-      </div>
-    </div>
 
-    <div class="customer-data-show">
-      <div class="customer-detail-id">
+      <div class="customer-data-show">
+        <div class="customer-detail-id">
+          ID：<%= @customer.id %>
+        </div>
+        <div class="customer-detail-name">
+          <%= @customer.family_name_kana %>
+        </div>
+        <div class="customer-detail-name">
+          <%= @customer.first_name_kana %>
+        </div>
+        <div class="customer-detail-birth">
+          生年月日：<%= @customer.birthday %>
+        </div>
+        <div class="customer-detail-age">
+          年齢：<%= @customer.age %>
+        </div>
       </div>
-      <div class="customer-detail-name">
-        <%= @customer.family_name %>
-      </div>
-      <div class="customer-detail-name">
-        <%= @customer.first_name %>
-      </div>
-      <div class="customer-detail-phone">
-        <%= @customer.phone_number %>
-      </div>
-      <div class="customer-detail-email">
-        <%= @customer.email %>
-      </div>
-    </div>
-    
-    <div class="customer-data-show">
-      <div class="customer-detail-id">
-      </div>
-      <div class="customer-detail-postal">
-        <%= @customer.postal_code %>
-      </div>
-      <div class="customer-detail-address">
-        <%= @customer.address %>
-      </div>
-      <div class="customer-detail-building">
-        <%= @customer.building_name %>
-      </div>
-    </div>
 
+      <div class="customer-data-show">
+        <div class="customer-detail-id">
+        </div>
+        <div class="customer-detail-name">
+          <%= @customer.family_name %>
+        </div>
+        <div class="customer-detail-name">
+          <%= @customer.first_name %>
+        </div>
+        <div class="customer-detail-phone">
+          電話番号：<%= @customer.phone_number %>
+        </div>
+        <div class="customer-detail-email">
+          メール：<%= @customer.email %>
+        </div>
+      </div>
+      
+      <div class="customer-data-show">
+        <div class="customer-detail-id">
+        </div>
+        <div class="customer-detail-postal">
+          郵便番号：<%= @customer.postal_code %>
+        </div>
+        <div class="customer-detail-address">
+          住所：<%= @customer.address %>
+        </div>
+        <div class="customer-detail-building">
+          <%= @customer.building_name %>
+        </div>
+      </div>
+    </div>
+    <%# 顧客詳細部分 %>
+
+
+    <%# 顧客メモ部分 %>
+    <div class="showpage-under">
+      <div class="showpage-memos">
+        <p>顧客メモ</P>
+          <div class="memo-post">
+            <%= form_for [@customer, @comment] do |f| %>
+              <%= f.text_field :content %>
+              <%= f.submit '登録' %>
+            <% end %>
+          </div>
+
+        <% @comments.each do |c| %>
+          <div class="memo">
+              <div class="memo-content">
+                <%= c.content %>
+              </div>
+              <div class="memo-delete">
+                <%= link_to "削除", customer_comment_path(c.id),method: :delete %>
+              </div>
+          </div>
+        <% end %>
+      </div>
+    <%# 顧客メモ部分 %>
+
+
+    <%# 地図部分 %>
+      <div class="showpage-map">
+         <!-- 地名入力用のinputを追加 -->
+          <input id="address" type="textbox" value="住所検索">
+              <!-- buttonをクリックしたらcodeAddressを実行-->
+          <input type="button" value="検索" onclick="codeAddress()">
+          <div id='map'>
+          </div>
+
+          <style>
+            #map{
+              height: 300px;
+              }
+          </style>
+
+          <script>
+          /*mapを関数の外で定義(codeAddressでも使うため)geocoderを用意*/
+            let map
+            let geocoder
+
+            function initMap(){
+              // geocoderを初期化
+              geocoder = new google.maps.Geocoder()
+
+              map = new google.maps.Map(document.getElementById('map'), {
+              center: {lat: 35.181, lng: 136.906},
+              zoom: 10
+              });
+            }
+
+            function codeAddress(){
+              // 入力を取得
+              let inputAddress = document.getElementById('address').value;
+
+              // geocodingしたあとmapを移動
+              geocoder.geocode( { 'address': inputAddress}, function(results, status) {
+                if (status == 'OK') {
+                // map.setCenterで地図が移動
+                map.setCenter(results[0].geometry.location);
+
+                // google.maps.MarkerでGoogleMap上の指定位置にマーカが立つ
+                var marker = new google.maps.Marker({
+                    map: map,
+                    position: results[0].geometry.location
+                    });
+                  } else {
+                    alert('Geocode was not successful for the following reason: ' + status);
+                  }
+                });
+              }
+              </script>
+            <script src="https://maps.googleapis.com/maps/api/js?key==initMap" async defer></script>
+      </div>
+    </div>
   </div>
 </div>

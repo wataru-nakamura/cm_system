@@ -1,22 +1,26 @@
 .mainpage {
-  padding: 15px;
+  /* padding: 15px; */
 }
 
 
 /* ヘッダー */
 .home-btn {
+  color: #330000;
   font-size: 2rem;
   text-decoration: none;
 }
 .mainpage-header {
   width: auto;
   height: 100px; 
-  border-bottom: 2px solid #38aef0 ;
+  background-color: #eaf6fd;
+  border-bottom: 1px solid #dddddd ;
   display: flex;
   justify-content: space-between;
+  position: sticky;
 }
 .mainpage-header-left {
   width: 550px;
+  margin-left: 20px;
 }
 .mainpage-header-left-contents {
   margin-top: 10px;
@@ -45,12 +49,12 @@
   border: none;
   margin: 20px 0 0 10px;
   color: #fff;
-  background-color: #38aef0;
+  background-color: #7db4e6;
 }
 .btn {
   height: 30px;
   color: #fff;
-  background-color: #38aef0;
+  background-color: #7db4e6;
   text-decoration: none;
   margin-left:10px;
   padding: 10px 10px;
@@ -58,9 +62,10 @@
 .header-content {
   float: left;
 }
+/* ヘッダー */
 
 
-/* メインコンテンツ */
+/* サイドバー */
 .mainpage-under {
   height: calc(100vh - 100px);
   display: flex;
@@ -68,23 +73,94 @@
 .mainpage-sidebar {
   width: 200px;
   padding: 20px;
-  border-right: 2px solid #38aef0 ;
+  border-right: 1px solid #dddddd ;
 }
-.mainpage-sidebar p {
-  font-size: large;
+.mainpage-sidebar h3 {
+  flex-basis: 10%;
+  padding: 0.4em 0.5em;
+  color: #494949;
+  background: #f4f4f4;
+  border-left: solid 5px #7db4e6;
+  border-bottom: solid 3px #d7d7d7;
   margin-bottom: 20px;
 }
 .sidebar {
   margin-bottom: 25px;
 }
+.sidebar p {
+  text-align: right;
+}
 .sidebar input {
   height: 50px;
 }
-
 .sidebar input :focus-within {
-  box-shadow: 0 0 7px #3498db;
-    border: 1px solid #3498db;
+  box-shadow: 0 0 7px #7db4e6;
+    border: 1px solid #7db4e6;
 }
+/* サイドバー */
+
+/* 新規顧客登録 */
+.new-customer {
+  height: calc(100vh - 100px);
+  margin: 30px;
+}
+.new-customer h1 {
+  font-size: larger;
+  font-weight: bold;
+}
+.customer-data-content {
+  display: flex;
+  height: 50px;
+  margin: 20px 0;
+}
+.content-name {
+  flex-basis: 25%;
+  height: 100%;
+  font-size: larger;
+}
+#customer_family_name, #customer_first_name,
+#customer_family_name_kana, #customer_first_name_kana,
+#customer_postal_code, #customer_address, 
+#customer_building_name, #customer_phone_number,
+#customer_email {
+  width: 300px;
+  height: 90%;
+}
+#customer_birthday_1i {
+  width: 100px;
+  height: 90%;
+}
+#customer_birthday_2i,#customer_birthday_3i {
+  width: 50px;
+  height: 90%;
+}
+#customer_age {
+  width: 100px;
+  height: 90%;
+}
+input[type=radio] {
+  transform: scale(1.5);
+  margin-right: 5px;
+}
+.customer-data-btn {
+  display: flex;
+  justify-content: center;
+  height: 50px;
+  margin: 20px 0;
+}
+.customer-data-btn input[type=submit] {
+  width: 250px;
+  height: 50px;
+  font-size: large;
+  letter-spacing: 5px;
+  border: none;
+  color: #fff;
+  background-color: #7db4e6;
+
+}
+
+/* 新規顧客登録 */
+
 
 /* 検索結果 */
 .mainpage-contents {
@@ -96,6 +172,7 @@
   padding: 20px;
   font-size: large;
   display: flex;
+  position: sticky;
 }
 .mainpage-tag p {
   text-decoration: underline;
@@ -148,6 +225,15 @@
 .tagname {
   flex-basis: 5%;
   padding-left: 20px;
+  text-decoration: none;
+}
+.customer-data {
+  height: 30px;
+  padding: 20px;
+  font-size: large;
+  border-bottom: 1px solid #dddddd ;
+  display: flex;
+  justify-content: space-around;
 }
 .tagname-id-2 {
   flex-basis: 10%;
@@ -168,54 +254,53 @@
   flex-basis: 10%;
   text-indent: 0.3in;
 }
-.mainpage-content {
-  /* overflow: scroll; */
-}
-.customer-data {
-  height: 30px;
-  padding: 20px;
-  font-size: large;
-  display: flex;
-  justify-content: space-around;
+.not-applicable {
+  font-size: x-large;
+  text-align: center;
 }
 /* 検索結果 */
+
 
 /* 顧客詳細 */
 .customer-datas-show {
   height: calc(100vh - 100px);
-  margin: 30px;
+  margin: 10px 30px;
 }
-.customer-data-show {
-  height: 70px;
-  display: flex;
-  border: 1px solid #3498db;
-}
-.customer-data-show h2 {
+.customer-data-header h2{
   font-size: larger;
   font-weight: bold;
+}
+.customer-data-show {
+  height: 50px;
+  display: flex;
+  font-size: large;
+  text-align: justify;
+  padding: 0.4em 0.5em;
+  color: #494949;
+  background: #f4f4f4;
+  border-left: solid 5px #7db4e6;
+  border-bottom: solid 3px #d7d7d7; 
 }
 .customer-detail-id {
   flex-basis: 10%;
 }
 .customer-detail-name {
-  flex-basis: 25%;
-  border: 1px solid red;
+  flex-basis: 20%;
 }
 .customer-detail-birth {
-  flex-basis: 20%;
+  flex-basis: 25%;
 }
 .customer-detail-age {
   flex-basis: 20%;
 }
 .customer-detail-phone {
-  flex-basis: 20%;
+  flex-basis: 25%;
 }
 .customer-detail-email {
-  flex-basis: 20%;
+  flex-basis: 25%;
 }
 .customer-detail-postal {
   flex-basis: 20%;
-  border: 1px solid red;
 }
 .customer-detail-address {
   flex-basis: 35%;
@@ -224,3 +309,56 @@
   flex-basis: 35%;
 }
 /* 顧客詳細 */
+
+
+/* 顧客メモ部分 */
+.showpage-under {
+  display: flex;
+  width: 100%;
+  height: 350px;
+  margin-top: 30px;
+}
+.showpage-memos  {
+  width: 50%;
+  height: auto;
+  overflow: auto;
+}
+.showpage-memos p {
+  font-size: larger;
+  font-weight: bold;
+}
+.memo-post #comment_content {
+  width: 80%;
+  height: 40px;
+  font-size: medium;
+  margin-bottom: 10px;
+  border: 1px solid #dddddd;
+}
+.memo-post input[type=submit] {
+  width: 60px;
+  height: 40px;
+}
+.memo {
+  width: 90%;
+  height: 30px;
+  padding: 0.4em 0.5em;
+  color: #494949;
+  background: #f4f4f4;
+  border-left: solid 5px #f5a500;
+  border-bottom: solid 3px #d7d7d7;
+  display: flex;
+  overflow: auto;
+}
+.memo-content {
+  flex-basis: 90%;
+}
+.memo-delete {
+  flex-basis: 10%;
+  text-align: end;
+  text-decoration: none;
+}
+/* 顧客メモ部分 */
+.showpage-map  {
+  width: 50%;
+  height: auto;
+}
