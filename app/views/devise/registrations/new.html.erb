@@ -1,4 +1,4 @@
-<div class='account-page' id='account-page'>
+  <div class='account-page' id='account-page'>
   <div class='account-page__inner clearfix'>
     <div class='account-page__inner--left account-page__header'>
       <h2>新規ユーザー登録</h2>
@@ -7,7 +7,7 @@
     </div>
     <div class='account-page__inner--right user-form'>
       <%= form_with model: resource, as: resource_name, url: registration_path(resource_name), local: true do |f|%>
-        <%= devise_error_messages!%>
+        <%= devise_error_messages! %>
         <div class='field'>
           <div class='field-label'>
             <%= f.label :氏名%>
@@ -27,7 +27,7 @@
         <div class='field'>
           <div class='field-label'>
             <%= f.label :パスワード%>
-            <i>(英数字8文字以上)</i>
+            <i>(英数字6文字以上)</i>
           </div>
           <div class='field-input'>
             <%= f.password_field :password, autocomplete: "off"%>
