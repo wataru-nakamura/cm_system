@@ -1,46 +1,18 @@
-.account-page .account-page__inner {
-  width: 980px;
-  margin: 60px auto;
-  padding: 60px;
+.account-page  {
+  width: 1200px;
+  margin: 0px auto;
   background-color: #fff;
+  border-radius: 5px;
+  height: calc(100vh - 100px);
+  display: flex;
+  justify-content: center;
+}
+.account-page__inner {
+  width: 480px;
+  margin: 60px auto;
+  padding: 30px 60px 60px 60px;
   border: 1px solid #ddd;
   border-radius: 5px;
-}
-.account-page .account-page__inner .account-page__inner--left, .account-page .account-page__inner .account-page__inner--right {
-  float: left;
-  width: 50%;
-}
-.account-page .account-page__inner:after {
-  clear: both;
-  content: "";
-  display: block;
-}
-.account-page .account-page__header h2 {
-  margin-bottom: 10px;
-  letter-spacing: 3px;
-  font-size: 40px;
-  font-weight: 200;
-}
-.account-page .account-page__header h2:after {
-  content: "";
-  display: block;
-  width: 200px;
-  margin-top: 5px;
-  border-bottom: 1px solid #7db4e6;
-}
-.account-page .account-page__header h5 {
-  margin-bottom: 20px;
-  font-size: 14px;
-  font-weight: 200;
-}
-.account-page .account-page__header .btn {
-  margin-top: 20px;
-  color: #fff;
-  background-color: #ccc;
-  font-size: 14px;
-}
-.account-page .field {
-  margin-bottom: 10px;
 }
 .account-page .field .field-label {
   padding: 10px 0;
@@ -56,7 +28,13 @@
   padding: 10px;
   letter-spacing: 1px;
 }
+.actions {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
 .account-page .btn {
+  width: 300px;
   display: inline-block;
   height: 50px;
   padding: 0 30px;
@@ -74,43 +52,11 @@
   border-bottom: solid 4px #627295;
   border-radius: 5px;
 }
-.account-page .field-label .field_with_errors {
-  display: inline-block;
-  color: #d65f4c;
-  font-weight: 400;
-}
-.account-page .field-input .field_with_errors {
-  position: relative;
-}
-.account-page .field-input .field_with_errors:after {
-  content: "";
-  display: block;
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  width: 5px;
-  background-color: #d65f4c;
-}
-
-#error_explanation {
-  margin: 20px 0;
-  padding: 20px 30px;
-  border: 1px solid #ddd;
-  border-radius: 2px;
-}
-#error_explanation h2 {
+.account-page__inner h2 {
   margin-bottom: 10px;
-  color: #d65f4c;
-  font-size: 14px;
-}
-#error_explanation ul {
-  margin: 0;
-  padding-left: 17px;
-  list-style: square;
-}
-#error_explanation li {
-  margin: 0;
-  padding: 0;
-  font-size: 13px;
+  letter-spacing: 3px;
+  font-size: 30px;
+  font-weight: 100;
+  border-bottom: solid 1px #627295;
+  text-align: center;
 }
