@@ -88,8 +88,9 @@
 
     <%# 地図部分 %>
       <div class="showpage-map">
+        <p>地図</P>
          <!-- 地名入力用のinputを追加 -->
-          <input id="address" type="textbox" value="住所検索">
+          <input id="address" type="textbox">
               <!-- buttonをクリックしたらcodeAddressを実行-->
           <input type="button" value="検索" onclick="codeAddress()">
           <div id='map'>
@@ -112,7 +113,7 @@
 
               map = new google.maps.Map(document.getElementById('map'), {
               center: {lat: 35.181, lng: 136.906},
-              zoom: 10
+              zoom: 12
               });
             }
 
@@ -137,7 +138,7 @@
                 });
               }
               </script>
-            <script src="https://maps.googleapis.com/maps/api/js?key==initMap" async defer></script>
+            <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA57QCcswoLwWnvGkiELOKZsbwmVtA695M&callback=initMap" async defer></script>
       </div>
     </div>
   </div>

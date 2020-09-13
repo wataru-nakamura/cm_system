@@ -8,4 +8,6 @@ class User < ApplicationRecord
   has_many :comments
 
   validates :name, presence: true
+
+  validates :password, format: { with: /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]{6,100}\z/i }
 end
