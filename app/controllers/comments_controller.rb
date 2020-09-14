@@ -10,7 +10,7 @@ class CommentsController < ApplicationController
   def destroy
     comment = Comment.find(params[:customer_id])
     if comment.destroy
-      # render :create
+      redirect_to  controller: :customers, action: :show
     end
   end
 
