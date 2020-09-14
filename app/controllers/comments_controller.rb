@@ -2,13 +2,15 @@ class CommentsController < ApplicationController
 
   def create
     @comment = Comment.new(comment_params) 
-    @comment.save
+    if @comment.save
+      ActionCable.server.broadcast 'comment_channel', content: @comment
+    end
   end
 
   def destroy
     comment = Comment.find(params[:customer_id])
     if comment.destroy
-      # render :create
+      redirect_to  controller: :customers, action: :show
     end
   end
 
