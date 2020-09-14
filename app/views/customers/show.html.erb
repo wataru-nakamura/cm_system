@@ -72,16 +72,16 @@
             <% end %>
           </div>
 
-        <% @comments.each do |c| %>
-          <div class="memo">
-              <div class="memo-content">
-                <%= c.content %>
-              </div>
+        <div id="messages">
+          <% @comments.each do |c| %>
+            <div class="memo">
+              <div class="memo-content"><%= c.content %></div>
               <div class="memo-delete">
                 <%= link_to "削除", customer_comment_path(c.id),method: :delete %>
               </div>
-          </div>
-        <% end %>
+            </div>
+          <% end %>
+        </div>
       </div>
     <%# 顧客メモ部分 %>
 
