@@ -1,13 +1,13 @@
 require 'rails_helper'
 
 RSpec.describe Customer, type: :model do
-  before do 
+  before do
     @customer = FactoryBot.build(:customer)
   end
 
   describe '顧客新規登録' do
     context '新規登録が上手くいく時' do
-      it '全ての項目が入力されていたら登録できる'do
+      it '全ての項目が入力されていたら登録できる' do
         expect(@customer).to be_valid
       end
 
@@ -20,7 +20,6 @@ RSpec.describe Customer, type: :model do
         @customer.email = nil
         expect(@customer).to be_valid
       end
-
     end
 
     context '新規登録が上手くいかない時' do
@@ -131,9 +130,6 @@ RSpec.describe Customer, type: :model do
         @customer.valid?
         expect(@customer.errors.full_messages).to include('Phone number is invalid')
       end
-
     end
-
   end
 end
-
