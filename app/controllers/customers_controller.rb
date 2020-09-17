@@ -1,5 +1,6 @@
 class CustomersController < ApplicationController
   before_action :search_customer, only: [:index, :search]
+  before_action :authenticate_user!, only: [:new, :show, :edit, :serach]
 
   def index
     @customer = Customer.all

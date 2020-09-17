@@ -3,6 +3,7 @@
   <div class="mainpage-under">
 
     <%# 検索サイドバー %>
+  <% if user_signed_in? %>
     <div class="mainpage-sidebar">
       <h3>顧客検索条件</h3>
         <%= search_form_for @c, url: search_customers_path do |f| %>
@@ -45,6 +46,26 @@
       </div>
     </div>
     <%# //検索結果 %>
-
+      <% else %>
+    <div class='account-page'>
+    <div class="account-page__inner">
+        <h2>ご覧頂きありがとうございます</h2>
+        <div class="inner">
+        <p>このアプリは顧客を管理するアプリです</p>
+        <p>営業時代にこんな機能があったらと感じたことを</p>
+        <p>機能として盛り込みました</p>
+        <p>随時機能は更新していきます</p>
+        <p>是非ログインして機能をご覧ください</p>
+        </div>
+        <div class="account-btn">
+          <%= link_to "新規登録", "/users/sign_up", class: 'btn' %>
+        </div>
+        <div class="account-btn">
+          <%= link_to "ログイン", "/users/sign_in", class: 'btn' %>
+        </div>
+    </div>
   </div>
+      <% end %>
+  </div>
+
 </div>
