@@ -1,24 +1,85 @@
-# README
+# Customer Management System
+このアプリケーションは顧客管理を目的としたアプリです。
+氏名・住所・年齢などの情報や個人ごとにメモを残したりすることができます。
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### 機能一覧
+・管理ユーザー登録機能
+・管理ユーザーログイン機能
+・顧客登録機能
+・顧客詳細表示機能
+・顧客編集機能
+・顧客検索機能
+・メモ投稿機能
+・地図表示機能
+・単体テスト機能
 
-Things you may want to cover:
+# 制作背景
+このアプリは私が前職で営業をやっていた時に感じた不便さを解消してみたいという思いから作成しました。
+できるだけシンプルにわかりやすく設計しつつ、必要な機能はきちんと盛り込んである。そんなアプリを目指しました。
 
-* Ruby version
+# DEMO
+"hoge"の魅力が直感的に伝えわるデモ動画や図解を載せる
 
-* System dependencies
+# 使用技術
+Ruby
+Ruby on Rails
+javascript
+Github
+MySQL
 
-* Configuration
+# 工夫したポイント
+使い方が直感でわかるようシンプルな設計に、それでいて痒いところには手が届く機能を盛り込みました。
 
-* Database creation
+# 今後実装したい機能
+今は地図を検索フォームに入れて入力することで表示させているが、DBの登録住所から表示できるように仕様変更する。
 
-* Database initialization
+# DB設計
 
-* How to run the test suite
+## users テーブル
 
-* Services (job queues, cache servers, search engines, etc.)
+| Column      | Type   | Options     |
+| ----------- | ------ | ----------- |
+| name        | string | null: false |
+| email       | string | null: false |
+| password    | string | null: false |
 
-* Deployment instructions
+### Association
 
-* ...
+- has_many :cusotmers
+- has_one  :comments
+
+## customers テーブル
+
+| Column           | Type   | Options     |
+| ---------------- | ------ | ----------- |
+| family_name      | string | null: false |
+| first_name       | string | null: false |
+| family_name_kana | string | null: false |
+| first_name_kana  | string | null: false |
+| birthday         | date   | null: false |
+| gender           | string | null: false |
+| age              | string | null: false |
+| postal_code      | string | null: false |
+| address          | string | null: false |
+| building_name    | string |             |
+| phone_number     | string | null: false |
+| e-mail           | string |             |
+
+
+### Association
+
+- belongs_to :user
+- has_many   :comments
+
+## comments テーブル
+
+| Column       | Type       | Options                        |
+| ------------ | ---------- | ------------------------------ |
+| content      | string     | null: false                    |
+| customer_id  | references | null: false, foreign_key: true |
+| user_id      | references | null: false, foreign_key: true |
+
+### Association
+
+- belongs_to :customer
+- belongs_to :user
