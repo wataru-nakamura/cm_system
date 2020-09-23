@@ -63,3 +63,5 @@ gem 'rails-i18n', '~> 6.0'
 group :production do
   gem 'rails_12factor'
 end
+gem 'faker'
+gem 'gimei'
