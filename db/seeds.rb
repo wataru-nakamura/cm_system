@@ -4,7 +4,7 @@
     family_name_kana = Gimei.last.katakana
     first_name_kana = Gimei.first.katakana
     birthday = Faker::Date.birthday(min_age: 18, max_age: 100)
-    gender = "男"
+    gender = "女"
     age = Faker::Number.number(digits: 2)
     postal_code = Faker::Number.number(digits: 3).to_s + '-' + Faker::Number.number(digits: 4).to_s
     address = Gimei.address
