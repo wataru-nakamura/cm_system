@@ -1,4 +1,4 @@
-  1.times do |n|
+  30.times do |n|
     family_name = Gimei.last.kanji
     first_name = Gimei.first.kanji
     family_name_kana = Gimei.last.katakana
